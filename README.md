@@ -8,6 +8,8 @@ Format: FirstLast####@outlook.com
 
 Birthday is also Random Month, Random Day 1-28, Random Year 1980-2000
 
+For selenium-stealth must change webdriver to "chrome" in config.json 
+
 ## Installation
 Install required packages:
 
