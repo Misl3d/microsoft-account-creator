@@ -48,7 +48,7 @@ def create():
     print(f"Birthday is | {numMonth}-{numDay}-{numYear}")
 
     # Generate random email/password
-    email = f"{''.join(firstname + midname + lastname + str(randomnum))}@outlook.com"
+    email = f"{''.join(firstname + lastname + str(randomnum))}@outlook.com"
     password = ''.join(random.sample(string.ascii_letters, 8))
     
     print(f"Account creation started | {email}")
