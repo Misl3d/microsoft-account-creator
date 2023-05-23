@@ -6,10 +6,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-import os, json, string, random
+import os, json, string, random, names
 
 os.system("cls || clear")
 print("Microsoft Account Creator - senoe")
+print("Random Name and Birthday added by Misl3d")
 
 # Load config
 try:
@@ -35,8 +36,19 @@ def create():
     # Go to signup link
     driver.get(cfg_signup_link)
 
+    #Get Names
+    firstname = names.get_first_name()
+    lastname = names.get_last_name()
+    randomnum = random.randint(1000,9999)
+    
+    #Get Birthday
+    numMonth = str(random.randint(0,12))
+    numDay = str(random.randint(0,28))
+    numYear = str(random.randint(1979,2000))
+    print(f"Birthday is | {numMonth}-{numDay}-{numYear}")
+
     # Generate random email/password
-    email = f"a{''.join(random.sample(string.ascii_lowercase + string.digits, 10))}@outlook.com"
+    email = f"{''.join(firstname + midname + lastname + str(randomnum))}@outlook.com"
     password = ''.join(random.sample(string.ascii_letters, 8))
     
     print(f"Account creation started | {email}")
@@ -57,11 +69,11 @@ def create():
     # Select country
     Select(driver.find_element(By.ID, "Country")).select_by_value("US")
     # Select birthday month
-    Select(driver.find_element(By.ID, "BirthMonth")).select_by_value("1")
+    Select(driver.find_element(By.ID, "BirthMonth")).select_by_value(numMonth)
     # Select birthday day
-    Select(driver.find_element(By.ID, "BirthDay")).select_by_value("1")
+    Select(driver.find_element(By.ID, "BirthDay")).select_by_value(numDay)
     # Select birthday year
-    driver.find_element(By.ID, "BirthYear").send_keys("2000")
+    driver.find_element(By.ID, "BirthYear").send_keys(numYear)
     # Click Next
     wait.until(EC.visibility_of_element_located((By.ID, "iSignupAction"))).click()
 
