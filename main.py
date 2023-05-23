@@ -4,6 +4,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
+from selenium_stealth import stealth
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 import os, json, string, random, names
@@ -26,9 +27,16 @@ print("Launching webdriver...")
 if "firefox" in cfg_webdriver or "gecko" in cfg_webdriver:
     driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
 elif "chrome" in cfg_webdriver:
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option("excludeSwitches", ["enable-logging"])
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        driver = webdriver.Chrome() 
+        webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+        stealth(driver,
+        languages=["en-US", "en"],
+        vendor="Google Inc.",
+        platform="Win32",
+        webgl_vendor="Intel Inc.",
+        renderer="Intel Iris OpenGL Engine",
+        fix_hairline=True,
+        )
 
 wait = WebDriverWait(driver, 30)
 
