@@ -1,6 +1,12 @@
 # Microsoft-Account-Creator
 
-A Microsoft account creator made in Python using Selenium.
+A Microsoft account creator made in Python using Selenium. 
+Orginal by Senoe
+
+I change the email creation to choose random first and last with a trailing number
+Format: FirstLast####@outlook.com
+
+Birthday is also Random Month, Random Day 1-28, Random Year 1980-2000
 
 ## Installation
 Install required packages:
