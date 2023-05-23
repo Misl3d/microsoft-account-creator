@@ -42,9 +42,9 @@ def create():
     randomnum = random.randint(1000,9999)
     
     #Get Birthday
-    numMonth = str(random.randint(0,12))
-    numDay = str(random.randint(0,28))
-    numYear = str(random.randint(1979,2000))
+    numMonth = str(random.randint(1,12))
+    numDay = str(random.randint(1,28))
+    numYear = str(random.randint(1980,2000))
     print(f"Birthday is | {numMonth}-{numDay}-{numYear}")
 
     # Generate random email/password
