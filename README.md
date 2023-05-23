@@ -18,3 +18,7 @@ Install required packages:
 ## Usage
 
 `py main.py`
+
+
+## Disclaimer
+I added things for fun, If this breaks I WON'T fix it. I don't know how. 
